@@ -1,7 +1,23 @@
+import { useState } from 'react';
+
+import Player from './components/player';
+
 import './App.css';
 
 function App() {
-	return <div className="bg-blue-500 text-white p-10 text-3xl font-bold">Tailwind Works!</div>;
+	const [allPlayers, setAllPlayers] = useState([]);
+
+	const savePlayerHandler = (playerStats) => {
+		setAllPlayers([...allPlayers, playerStats]);
+	};
+
+	return (
+		<main className="flex justify-center items-center h-screen">
+			<>
+				<Player savePlayerHandler={savePlayerHandler} />
+			</>
+		</main>
+	);
 }
 
 export default App;
