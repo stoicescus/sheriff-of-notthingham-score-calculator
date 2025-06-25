@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { getBaseTotal } from '../utils/utils';
+
 const initialState = {
 	playerName: '',
 	apples: { type: 'legal', nr: 0, cardValue: 2, imageUrl: 'images/legal/apple.png' },
@@ -27,19 +29,13 @@ const usePlayer = () => {
 				[name]: name === 'playerName' ? newValue : { ...prevStats[name], nr: newValue },
 			};
 
-			const newTotal = getDerivedTotalFromState(updatedStats);
+			const baseTotal = getBaseTotal(updatedStats);
 
 			return {
 				...updatedStats,
-				total: newTotal,
+				total: baseTotal,
 			};
 		});
-	};
-
-	let getDerivedTotalFromState = (state) => {
-		return Object.values(state).reduce((sum, item) => {
-			return sum + (item.type ? Number(item.nr) * Number(item.cardValue) || 0 : item.nr || 0);
-		}, 0);
 	};
 
 	return { playerStats, handleInputChange };
