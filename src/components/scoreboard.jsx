@@ -1,10 +1,6 @@
-import { useState } from 'react';
-
 import { getBaseTotal } from '../utils/utils';
 
-const Scoreboard = ({ players, bonuses }) => {
-	const [showDetails, setShowDetails] = useState(false);
-
+const Scoreboard = ({ players, bonuses, showDetails }) => {
 	if (players.length === 0) return;
 
 	const descendingSortedPlayers = [...players].sort((a, b) => {
@@ -16,7 +12,7 @@ const Scoreboard = ({ players, bonuses }) => {
 	const topScore = getBaseTotal(descendingSortedPlayers[0]) + (bonuses[descendingSortedPlayers[0].playerName] || 0);
 
 	const renderPlayersStats = () => {
-		return descendingSortedPlayers.map((player, index) => {
+		return descendingSortedPlayers.map((player) => {
 			const baseTotal = getBaseTotal(player);
 			const bonus = bonuses[player.playerName] || 0;
 			const finalScore = baseTotal + bonus;
@@ -48,44 +44,78 @@ const Scoreboard = ({ players, bonuses }) => {
 		});
 	};
 
-	const handleDetails = () => setShowDetails(!showDetails);
-
 	return (
-		<div className="scoreboard">
+		<div className="scoreboard overflow-x-auto w-full">
 			<table className="table-auto min-w-full border-collapse bg-white shadow-md rounded-lg overflow-hidden">
 				<thead className="bg-black text-white text-sm uppercase tracking-wider">
 					<tr className="divide-x divide-y divide-white text-center">
-						<th className="px-4 py-2 text-left">Player</th>
+						<th className="px-4 py-2">
+							<div className="flex justify-center items-center">
+								<img src="images/player.png" width="30" />
+							</div>
+						</th>
 						{showDetails && (
 							<>
-								<th className="px-4 py-2">Apples</th>
-								<th className="px-4 py-2">Cheese</th>
-								<th className="px-4 py-2">Bread</th>
-								<th className="px-4 py-2">Chickens</th>
-								<th className="px-4 py-2">Pepper</th>
-								<th className="px-4 py-2">Mead</th>
-								<th className="px-4 py-2">Silk</th>
-								<th className="px-4 py-2">Crossbows</th>
-								<th className="px-4 py-2">Gold</th>
-								<th className="px-4 py-2">Base Total</th>
-								<th className="px-4 py-2">Bonus</th>
+								<th className="px-1 py-2">
+									<div className="flex justify-center items-center">
+										<img src="images/legal/apple.png" width="30" alt="Apple icon" />
+									</div>
+								</th>
+								<th className="px-1 py-2">
+									<div className="flex justify-center items-center">
+										<img src="images/legal/cheese.png" width="30" alt="Cheese icon" />
+									</div>
+								</th>
+								<th className="px-1 py-2">
+									<div className="flex justify-center items-center">
+										<img src="images/legal/bread.png" width="30" alt="Bread icon" />
+									</div>
+								</th>
+								<th className="px-1 py-2">
+									<div className="flex justify-center items-center">
+										<img src="images/legal/chicken.png" width="30" alt="Chicken icon" />
+									</div>
+								</th>
+								<th className="px-1 py-2">
+									<div className="flex justify-center items-center">
+										<img src="images/contraband/pepper.png" width="30" alt="Pepper icon" />
+									</div>
+								</th>
+								<th className="px-1 py-2">
+									<div className="flex justify-center items-center">
+										<img src="images/contraband/mead.png" width="30" alt="Mead icon" />
+									</div>
+								</th>
+								<th className="px-1 py-2">
+									<div className="flex justify-center items-center">
+										<img src="images/contraband/silk.png" width="30" alt="Silk icon" />
+									</div>
+								</th>
+								<th className="px-1 py-2">
+									<div className="flex justify-center items-center">
+										<img src="images/contraband/crossbow.png" width="30" alt="Crossbow icon" />
+									</div>
+								</th>
+								<th className="px-1 py-2">
+									<div className="flex justify-center items-center">
+										<img src="images/coins.png" width="30" alt="Gold icon" />
+									</div>
+								</th>
+								<th className="px-1 py-2">
+									<div className="flex justify-center items-center">Base Total</div>
+								</th>
+								<th className="px-1 py-2">
+									<div className="flex justify-center items-center">Bonus</div>
+								</th>
 							</>
 						)}
-						<th className="px-4 py-2 border-b border-white">Total</th>
+						<th className={`${showDetails ? 'px-1' : 'px-4'} py-2 border-b border-white`}>
+							<div className="flex justify-center items-center">Total</div>
+						</th>
 					</tr>
 				</thead>
 				<tbody className="divide-y divide-gray-200">{renderPlayersStats()}</tbody>
 			</table>
-			<div className="text-right">
-				{players.length > 0 && (
-					<button
-						className="bg-blue-500 hover:bg-blue-400 cursor-pointer transition-colors duration-300 ease-in-out text-white px-4 py-2 mt-2 text-right rounded"
-						onClick={handleDetails}
-					>
-						{showDetails ? 'Hide Details' : 'Show details'}
-					</button>
-				)}
-			</div>
 		</div>
 	);
 };
