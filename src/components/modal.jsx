@@ -2,15 +2,15 @@ const Modal = ({ isOpen, onClose, children }) => {
 	if (!isOpen) return null;
 
 	return (
-		<div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-			<div className="w-full h-full bg-white p-6 relative overflow-auto">
+		<div className="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-50">
+			<div className="relative bg-white p-6 max-w-[90vw] max-h-[90vh]">
 				<button
-					className="absolute top-2 right-2 text-gray-500 hover:text-gray-800 font-bold text-2xl"
+					className="absolute -top-4 -right-2 text-gray-500 hover:text-gray-800 font-bold text-2xl cursor-pointer transition-transform duration-200 hover:scale-150"
 					onClick={onClose}
 				>
 					&times;
 				</button>
-				<div className="mt-5">{children}</div>
+				<div className="flex justify-center items-center">{children}</div>
 			</div>
 		</div>
 	);
