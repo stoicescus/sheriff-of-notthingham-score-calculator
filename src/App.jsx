@@ -1,13 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import Player from './components/player';
 import AllPlayers from './components/all_players';
 import bg from './assets/sheriff_of_nottingham.png';
+import Modal from './components/modal';
 
 import './App.css';
 
 function App() {
 	const [allPlayers, setAllPlayers] = useState([]);
+	const [showAllPlayers, setShowAllPlayers] = useState(false);
+
+	// used in useEffect Hook for detecting if a new player was added
+	const playerAddedRef = useRef(false);
+
+	useEffect(() => {
+		if (playerAddedRef.current) {
+			setShowAllPlayers(true);
+			playerAddedRef.current = false;
+		}
+	}, [allPlayers]);
 
 	const savePlayerHandler = (playerStats) => {
 		// check if the player has a name set in
@@ -24,6 +36,13 @@ function App() {
 			return;
 		}
 
+		if (allPlayers.length > 4) {
+			alert("You can't have more then 5 players.");
+			setShowAllPlayers(true);
+			return;
+		}
+
+		playerAddedRef.current = true;
 		setAllPlayers([...allPlayers, playerStats]);
 	};
 
@@ -38,9 +57,9 @@ function App() {
 					<div className="w-full md:w-auto mb-4 md:mb-0">
 						<Player savePlayerHandler={savePlayerHandler} />
 					</div>
-					<div className="w-full md:w-auto">
+					<Modal isOpen={showAllPlayers} onClose={() => setShowAllPlayers(false)}>
 						<AllPlayers allPlayers={allPlayers} />
-					</div>
+					</Modal>
 				</div>
 			</div>
 		</main>
