@@ -4,6 +4,7 @@ import Player from './components/player';
 import AllPlayers from './components/all_players';
 import bg from './assets/sheriff_of_nottingham.png';
 import Modal from './components/modal';
+import Notification from './components/notification';
 
 import './App.css';
 
@@ -13,6 +14,8 @@ function App() {
 
 	// used in useEffect Hook for detecting if a new player was added
 	const playerAddedRef = useRef(false);
+
+	const notificationRef = useRef();
 
 	useEffect(() => {
 		if (playerAddedRef.current) {
@@ -24,7 +27,7 @@ function App() {
 	const savePlayerHandler = (playerStats) => {
 		// check if the player has a name set in
 		if (!playerStats.playerName) {
-			alert('Please enter a player name.');
+			callNotification('Please enter a player name.');
 			return;
 		}
 
@@ -32,18 +35,22 @@ function App() {
 		const existingPlayerNames = allPlayers.map((player) => player.playerName);
 
 		if (existingPlayerNames.includes(playerStats.playerName)) {
-			alert('Player was already calculated.');
+			callNotification('Player was already calculated.');
 			return;
 		}
 
 		if (allPlayers.length > 4) {
-			alert("You can't have more then 5 players.");
-			setShowAllPlayers(true);
+			callNotification("You can't have more then 5 players. Let's view the already registered players instead.");
+			setTimeout(() => setShowAllPlayers(true), 5000);
 			return;
 		}
 
 		playerAddedRef.current = true;
 		setAllPlayers([...allPlayers, playerStats]);
+	};
+
+	const callNotification = (msg) => {
+		notificationRef.current?.showNotification(msg);
 	};
 
 	return (
@@ -62,6 +69,7 @@ function App() {
 					</Modal>
 				</div>
 			</div>
+			<Notification ref={notificationRef} />
 		</main>
 	);
 }
