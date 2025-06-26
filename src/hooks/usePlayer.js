@@ -38,7 +38,9 @@ const usePlayer = () => {
 		});
 	};
 
-	return { playerStats, handleInputChange };
+	const resetForm = () => setPlayerStats(initialState);
+
+	return { playerStats, handleInputChange, resetForm };
 };
 
 export default usePlayer;

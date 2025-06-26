@@ -56,60 +56,60 @@ const Scoreboard = ({ players, bonuses, showDetails }) => {
 						</th>
 						{showDetails && (
 							<>
-								<th className="px-1 py-2">
+								<th className="px-1 md:px-4 py-2">
 									<div className="flex justify-center items-center">
 										<img src="images/legal/apple.png" width="30" alt="Apple icon" />
 									</div>
 								</th>
-								<th className="px-1 py-2">
+								<th className="px-1 md:px-4 py-2">
 									<div className="flex justify-center items-center">
 										<img src="images/legal/cheese.png" width="30" alt="Cheese icon" />
 									</div>
 								</th>
-								<th className="px-1 py-2">
+								<th className="px-1 md:px-4 py-2">
 									<div className="flex justify-center items-center">
 										<img src="images/legal/bread.png" width="30" alt="Bread icon" />
 									</div>
 								</th>
-								<th className="px-1 py-2">
+								<th className="px-1 md:px-4 py-2">
 									<div className="flex justify-center items-center">
 										<img src="images/legal/chicken.png" width="30" alt="Chicken icon" />
 									</div>
 								</th>
-								<th className="px-1 py-2">
+								<th className="px-1 md:px-4 py-2">
 									<div className="flex justify-center items-center">
 										<img src="images/contraband/pepper.png" width="30" alt="Pepper icon" />
 									</div>
 								</th>
-								<th className="px-1 py-2">
+								<th className="px-1 md:px-4 py-2">
 									<div className="flex justify-center items-center">
 										<img src="images/contraband/mead.png" width="30" alt="Mead icon" />
 									</div>
 								</th>
-								<th className="px-1 py-2">
+								<th className="px-1 md:px-4 py-2">
 									<div className="flex justify-center items-center">
 										<img src="images/contraband/silk.png" width="30" alt="Silk icon" />
 									</div>
 								</th>
-								<th className="px-1 py-2">
+								<th className="px-1 md:px-4 py-2">
 									<div className="flex justify-center items-center">
 										<img src="images/contraband/crossbow.png" width="30" alt="Crossbow icon" />
 									</div>
 								</th>
-								<th className="px-1 py-2">
+								<th className="px-1 md:px-4 py-2">
 									<div className="flex justify-center items-center">
 										<img src="images/coins.png" width="30" alt="Gold icon" />
 									</div>
 								</th>
-								<th className="px-1 py-2">
+								<th className="px-1 md:px-4 py-2">
 									<div className="flex justify-center items-center">Base Total</div>
 								</th>
-								<th className="px-1 py-2">
+								<th className="px-1 md:px-4 py-2">
 									<div className="flex justify-center items-center">Bonus</div>
 								</th>
 							</>
 						)}
-						<th className={`${showDetails ? 'px-1' : 'px-4'} py-2 border-b border-white`}>
+						<th className="px-1 md:px-4 py-2 border-b border-white">
 							<div className="flex justify-center items-center">Total</div>
 						</th>
 					</tr>
