@@ -32,7 +32,7 @@ const Player = ({ savePlayerHandler }) => {
 const PlayerItem = ({ imgUrl, name, value, onChange }) => {
 	return (
 		<div className="flex pb-2">
-			<img src={imgUrl ?? 'images/player.png'} width="50" className="mr-2" alt={name} />
+			<img src={imgUrl ?? 'images/player.png'} className="mr-2 rounded-md w-12" alt={name} />
 			<input
 				type={name === 'playerName' ? 'text' : 'number'}
 				name={name}

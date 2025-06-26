@@ -51,7 +51,7 @@ const Scoreboard = ({ players, bonuses, showDetails }) => {
 					<tr className="divide-x divide-y divide-white text-center">
 						<th className="px-4 py-2">
 							<div className="flex justify-center items-center">
-								<img src="images/player.png" width="30" />
+								<img src="images/player.png" className="min-w-4 w-8 rounded-xs" />
 							</div>
 						</th>
 						{showDetails && (
