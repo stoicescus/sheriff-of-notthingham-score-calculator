@@ -46,7 +46,7 @@ const Scoreboard = ({ players, bonuses, showDetails }) => {
 
 	return (
 		<div className="scoreboard overflow-x-auto w-full">
-			<table className="table-auto min-w-full border-collapse bg-white shadow-md rounded-lg overflow-hidden">
+			<table className="table-auto min-w-full border-collapse bg-white shadow-md rounded-lg overflow-x-auto">
 				<thead className="bg-black text-white text-sm uppercase tracking-wider">
 					<tr className="divide-x divide-y divide-white text-center">
 						<th className="px-4 py-2">
@@ -58,47 +58,83 @@ const Scoreboard = ({ players, bonuses, showDetails }) => {
 							<>
 								<th className="px-1 md:px-4 py-2">
 									<div className="flex justify-center items-center">
-										<img src="images/legal/apple.png" width="30" alt="Apple icon" />
+										<img
+											src="images/legal/apple.png"
+											className="min-w-4 w-8 rounded-xs"
+											alt="Apple icon"
+										/>
 									</div>
 								</th>
 								<th className="px-1 md:px-4 py-2">
 									<div className="flex justify-center items-center">
-										<img src="images/legal/cheese.png" width="30" alt="Cheese icon" />
+										<img
+											src="images/legal/cheese.png"
+											className="min-w-4 w-8 rounded-xs"
+											alt="Cheese icon"
+										/>
 									</div>
 								</th>
 								<th className="px-1 md:px-4 py-2">
 									<div className="flex justify-center items-center">
-										<img src="images/legal/bread.png" width="30" alt="Bread icon" />
+										<img
+											src="images/legal/bread.png"
+											className="min-w-4 w-8 rounded-xs"
+											alt="Bread icon"
+										/>
 									</div>
 								</th>
 								<th className="px-1 md:px-4 py-2">
 									<div className="flex justify-center items-center">
-										<img src="images/legal/chicken.png" width="30" alt="Chicken icon" />
+										<img
+											src="images/legal/chicken.png"
+											className="min-w-4 w-8 rounded-xs"
+											alt="Chicken icon"
+										/>
 									</div>
 								</th>
 								<th className="px-1 md:px-4 py-2">
 									<div className="flex justify-center items-center">
-										<img src="images/contraband/pepper.png" width="30" alt="Pepper icon" />
+										<img
+											src="images/contraband/pepper.png"
+											className="min-w-4 w-8 rounded-xs"
+											alt="Pepper icon"
+										/>
 									</div>
 								</th>
 								<th className="px-1 md:px-4 py-2">
 									<div className="flex justify-center items-center">
-										<img src="images/contraband/mead.png" width="30" alt="Mead icon" />
+										<img
+											src="images/contraband/mead.png"
+											className="min-w-4 w-8 rounded-xs"
+											alt="Mead icon"
+										/>
 									</div>
 								</th>
 								<th className="px-1 md:px-4 py-2">
 									<div className="flex justify-center items-center">
-										<img src="images/contraband/silk.png" width="30" alt="Silk icon" />
+										<img
+											src="images/contraband/silk.png"
+											className="min-w-4 w-8 rounded-xs"
+											alt="Silk icon"
+										/>
 									</div>
 								</th>
 								<th className="px-1 md:px-4 py-2">
 									<div className="flex justify-center items-center">
-										<img src="images/contraband/crossbow.png" width="30" alt="Crossbow icon" />
+										<img
+											src="images/contraband/crossbow.png"
+											className="min-w-4 w-8 rounded-xs"
+											alt="Crossbow icon"
+										/>
 									</div>
 								</th>
 								<th className="px-1 md:px-4 py-2">
 									<div className="flex justify-center items-center">
-										<img src="images/coins.png" width="30" alt="Gold icon" />
+										<img
+											src="images/coins.png"
+											className="min-w-4 w-8 rounded-xs"
+											alt="Gold icon"
+										/>
 									</div>
 								</th>
 								<th className="px-1 md:px-4 py-2">
