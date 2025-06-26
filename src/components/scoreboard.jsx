@@ -137,15 +137,15 @@ const Scoreboard = ({ players, bonuses, showDetails }) => {
 										/>
 									</div>
 								</th>
-								<th className="px-1 md:px-4 py-2">
+								<th className="px-1 md:px-4 [@media(orientation:landscape)]:px-2 py-2">
 									<div className="flex justify-center items-center">Base Total</div>
 								</th>
-								<th className="px-1 md:px-4 py-2">
+								<th className="px-1 md:px-4 [@media(orientation:landscape)]:px-2 py-2">
 									<div className="flex justify-center items-center">Bonus</div>
 								</th>
 							</>
 						)}
-						<th className="px-1 md:px-4 py-2 border-b border-white">
+						<th className="px-1 md:px-4 [@media(orientation:landscape)]:px-2 py-2 border-b border-white">
 							<div className="flex justify-center items-center">Total</div>
 						</th>
 					</tr>
